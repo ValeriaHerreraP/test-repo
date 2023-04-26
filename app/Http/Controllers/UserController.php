@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 
 use Illuminate\Http\Request;
@@ -10,13 +11,13 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $search = $request->search;
-        $users = User::where('name', 'LIKE', "%{$search}%") -> orWhere ('lastname', 'LIKE', "%{$search}%") -> latest()->paginate();
-        return view('users.index',['users' => $users]);
+        $users = User::where('name', 'LIKE', "%{$search}%") -> orWhere('lastname', 'LIKE', "%{$search}%") -> latest()->paginate();
+        return view('users.index', ['users' => $users]);
     }
 
     public function edit(User $user)
     {
-        return view('users.edit',['user' => $user]);
+        return view('users.edit', ['user' => $user]);
     }
 
     public function update(Request $request, User $user)
@@ -43,12 +44,10 @@ class UserController extends Controller
 
     public function updateState(Request $request, User $user)
     {
-        if ($request->state == "Habilitar"){
+        if ($request->state == "Habilitar") {
 
             $state = 1;
-        }
-        else
-        {
+        } else {
             $state = 0;
         }
 
@@ -59,7 +58,7 @@ class UserController extends Controller
         return back();
     }
 
-    
+
     public function destroy(User $user)
     {
         $user->delete();

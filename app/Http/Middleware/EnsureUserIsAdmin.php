@@ -15,15 +15,11 @@ class EnsureUserIsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if($request->user()->is_admin == true)
-        {
+        if($request->user()->is_admin == true) {
             return $next($request);
-        }
-
-        else
-        {
+        } else {
             return back();
         }
-        
+
     }
 }
