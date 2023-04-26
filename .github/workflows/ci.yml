@@ -39,3 +39,5 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
+    - name: Run phpstan
+              run: vendor/bin/phpstan analyse resources database app
