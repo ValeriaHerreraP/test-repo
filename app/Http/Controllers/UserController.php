@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index(Request $request)
+    public function index(Requestt $request)
     {
         $search = $request->search;
         $users = User::where('name', 'LIKE', "%{$search}%") -> orWhere('lastname', 'LIKE', "%{$search}%") -> latest()->paginate();
