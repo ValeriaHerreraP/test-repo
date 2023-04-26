@@ -16,7 +16,7 @@ jobs:
               with:
                   ref: ${{ github.head_ref }}
 
-            - name: Install
+            - name: Install composer
               run: composer install
 
             - name: Run php-cs-fixer
