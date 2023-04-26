@@ -40,4 +40,4 @@ jobs:
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
     - name: Run phpstan
-              run: vendor/bin/phpstan analyse resources database app
+      run: vendor/bin/phpstan analyse resources database app
